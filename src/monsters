@@ -1,0 +1,717 @@
+[b]bat                                     1d4  2/5       1 10 0   2-4
+	1d2 sleeps
+	is mean
+	is confused
+	can give you a disease
+
+[R]giant rat                               1d4  1/7       7 10 1   2-4
+	1d3 wanders
+	is mean
+	can give you a disease
+
+[K]kobold                                  1d4  1/5       7  9 1   8-8
+	1d4 wanders
+	is mean
+	can shoot at you
+
+[G]gnome                                   1d6  1/8       5 10 1 11-12
+	1d6 wanders
+	can shoot at you
+
+[H]halfling                                1d6  1/9       4  8 1 11-12
+	1d6 wanders
+	can shoot at you
+
+[D]dwarf                                   1d8  1/10      4 14 1 11-12
+	1d8 wanders
+	can shoot at you
+
+[O]orc                                     1d8  1/10      6 12 1   8-8
+	1d8 wanders
+	is mean
+	can shoot at you
+
+[M]manes                                   1d8  1/18      7 10 1   2-4
+	1d2/1d2/1d4 wanders
+	is mean
+	need +1,+1 weapon to hit it
+	is undead
+
+[E]elf                                   1d8+1  1/20      5 12 2 13-20
+	1d10 wanders
+	can shoot at you
+
+[h]hobgoblin                             1d8+1  1/20      5 14 2  8-10
+	1d8 wanders
+	is mean
+	can shoot at you
+
+[B]fire beetle                           1d8+2  1/20      4 10 2   0-0
+	2d4 wanders
+	is mean
+	has fire (lights room)
+
+[A]giant ant                               2d8  2/40      3 10 3   1-1
+	2d4/3d4 wanders
+	is mean
+	can poison you
+
+[Z]zombie                                  2d8  2/20      8 10 2   0-0
+	1d8 wanders
+	is mean
+	is undead
+
+[e]ear seeker                              1d1  1/0       9 10 0   0-0
+	0d0 wanders
+	is mean
+	can give you a parasite
+
+[S]shrieker                                3d8  3/5       7 10 1   0-0
+	0d0 sleeps
+	can shriek
+	it doesn't move
+
+[s]stirge                                1d8+1  4/36      8 10 2   1-1
+	1d3 wanders
+	is mean
+	can draw blood
+
+[T]troglodyte                              2d8  2/36      5 10 2   5-7
+	1d3/1d3/2d5 wanders
+	is mean
+	can smell
+	can shoot at you
+
+[L]lemure                                  3d8  3/65      7 10 3   2-4
+	1d3 sleeps
+	is mean
+	recovers rapidly
+	need +1,+1 weapon to hit it
+	is undead
+
+[b]bugbear                               3d8+1  3/135     5 16 4   5-8
+	2d4 wanders
+	is mean
+	can shoot at you
+	can surprise you
+
+[r]wererat                               3d8+1  3/150     6 10 4 11-12
+	1d8 wanders
+	is mean
+	need +1,+1 weapon to hit it
+
+[g]ghoul                                   2d8  2/65      6 10 2   5-7
+	1d3/1d3/1d6 wanders
+	is mean
+	can paralyze you
+	is undead
+
+[l]leprechaun                            1d4+1  6/80      5 10 1 15-16
+	0d0 sleeps
+	runs away from you
+	carries gold
+	steals gold
+
+[o]ogre                                  4d8+1  4/90      5 18 5   5-7
+	1d10 wanders
+	is mean
+
+[C]centaur                                 4d8  4/85      4 10 4  5-10
+	1d6/1d6 wanders
+	can shoot at you
+
+[N]nymph                                   3d8  4/350     9 10 3 15-16
+	0d0 sleeps
+	runs away from you
+	steals magic
+
+[F]violet fungi                            3d8  3/135     7 10 4   0-0
+	5d1 sleeps
+	is mean
+	can hold you
+	it doesn't move
+	can give you rot
+
+[t]giant tick                              3d8  3/105     3 10 2   0-0
+	1d4 wanders
+	is mean
+	can draw blood
+	can give you a disease
+
+[c]gelatinous cube                         4d8  4/150     8 10 4   0-0
+	2d4 wanders
+	is mean
+	is a scavenger
+	can paralyze you
+
+[B]blink dog                               4d8  4/170     5 10 5  8-10
+	1d6 wanders
+	is mean
+	can blink
+
+[d]very young dragon                       9d1  9/100    -1 10 9 15-16
+	1d8/1d8/3d10 sleeps
+	is mean
+	can breath at random
+	is greedy
+
+[R]rust monster                            3d8  5/185     2 10 4   1-1
+	0d0/0d0 wanders
+	is mean
+	can rust
+
+[G]ghast                                   4d8  4/190     4 10 4 11-12
+	1d4/1d4/1d8 wanders
+	can paralyze you
+	can stink
+	is mean
+	is undead
+
+[b]blindheim                             4d8+2  2/200     1  8 4     1
+	1d8 sleeps
+	can blind you
+	is mean
+
+[S]shadow                                3d8+3  3/255     7 10 4   5-7
+	1d4+1 wanders
+	is invisible most of the time
+	is mean
+	can give you a chill
+	is undead
+
+[g]gargoyle                              4d8+4  4/165     5 10 5   5-7
+	1d3/1d3/1d6/1d4 wanders
+	is mean
+	need +1,+1 weapon to hit it
+
+[s]su-monster                            5d8+5  5/225     6 10 6  8-10
+	4d4/2d4 wanders
+	is mean
+
+[o]gray ooze                             3d8+3  3/200     8 10 5   1-1
+	2d8 sleeps
+	is mean
+	it doesn't move
+	can rust
+	is a scavenger
+
+[O]owlbear                               5d8+2  5/225     5 10 8   5-7
+	1d6/1d6/2d6 wanders
+	is mean
+	can hug you
+
+[Q]quasit                                  3d8  7/325     2 10 3   5-7
+	1d2/1d2/1d4 wanders
+	is mean
+	recovers rapidly
+	need +1,+1 weapon to hit it
+	can surprise you
+	causes itching
+
+[D]doppleganger                            4d8 10/330     5 10 4 11-12
+	1d12 wanders
+	is mean
+	can surprise you
+
+[Y]yeti                                  4d8+4  6/500     6 13 8  8-10
+	1d6/1d6 wanders
+	is mean
+	can paralyze you
+	can hug you
+	not affected by ice
+	can surprise you
+
+[L]leucrotta                             6d8+1  6/475     4 10 8  8-10
+	3d6/1d6/1d6 sleeps
+	is mean
+
+[I]imp                                   2d8+2  2/275     2 10 3  8-10
+	1d4 wanders
+	is mean
+	recovers rapidly
+	need +1,+1 weapon to hit it
+	can poison you
+	can surprise you
+
+[C]cockatrice                              5d8  5/315     6 10 5   1-1
+	1d3 wanders
+	is mean
+	can turn you into stone when touched
+
+[W]wight                                 4d8+3  4/540     5 10 5  8-10
+	1d4 wanders
+	is mean
+	can lower exp level
+	need +1,+1 weapon to hit it
+	is undead
+
+[T]troll                                 6d8+6  6/600     4 18 8   5-7
+	1d4+4/1d4+4/2d6 sleeps
+	is mean
+	recovers rapidly
+
+[J]jackalwere                              4d8  4/800     4 10 4 11-12
+	2d4 wanders
+	is mean
+	can shoot at you
+	can put you to sleep
+	need +1,+1 weapon to hit it
+
+[w]wraith                                5d8+3  5/575     4 10 6 11-12
+	1d6 wanders
+	is mean
+	can lower exp level
+	need +1,+1 weapon to hit it
+	is undead
+
+[B]basilisk                              6d8+1  6/1000    4 10 8   1-1
+	1d10 wanders
+	is mean
+	can turn you into stone when you see it
+
+[E]erinyes                               6d8+6  7/875     2 10 8  8-10
+	2d4 wanders
+	can summon 3 ghouls
+	is mean
+	can frighten you
+	(NULL)
+	is undead
+
+[m]mummy                                 6d8+3  6/1150    3 10 8   5-7
+	1d12 sleeps
+	is mean
+	can give you a parasite
+	need +1,+1 weapon to hit it
+	can frighten you
+	receives half damage
+	is undead
+
+[o]otyugh                                  7d8  7/700     3 10 8  5-10
+	1d8/1d8/1d4+1 wanders
+	is mean
+	can give you a disease
+
+[d]adult dragon                           45d1  9/1000   -1 10 9 15-16
+	1d8/1d8/3d10 sleeps
+	is mean
+	can breath at random
+	is greedy
+	can frighten you
+
+[i]invisible stalker                       8d8  8/1090    3 10 10 13-14
+	4d4 wanders
+	is mean
+	is invisible
+
+[X]xorn                                  7d8+7  7/1275   -2 10 10  8-10
+	1d3/1d3/1d3/4d6 wanders
+	is mean
+	can chase through walls
+	not affected by ice
+	not affected by fire
+	can surprise you
+
+[W]will-o-wisp                             9d8  9/1200   -8 10 12 15-16
+	2d8 sleeps
+	is mean
+	can surprise you
+
+[c]chimera                                 9d8  9/1000    6 10 12   2-4
+	1d3/1d3/1d4/1d4/2d4/3d4 sleeps
+	is mean
+	can breath fire
+
+[M]mimic                                   9d8  9/1300    7 10 12  2-10
+	3d4 sleeps
+	is disguised
+	can hold you
+
+[H]horned devil                          5d8+5  7/1320   -3 10 6 13-14
+	1d4/1d4/1d4+1/1d3 wanders
+	can summon 2 wights
+	is mean
+	can frighten you
+	can give you a parasite
+	can poison you
+	need +1,+1 weapon to hit it
+	(NULL)
+
+[S]specter                               7d8+3  7/1650    2 10 10 13-14
+	1d8 wanders
+	is mean
+	can lower exp level by 2
+	is undead
+
+[N]neo-otyugh                             12d8 10/1500    0 12 10 10-12
+	2d6/2d6/1d3 wanders
+	is mean
+	can give you a disease
+
+[B]barbed devil                            8d8  8/1425    0 10 10 11-12
+	2d4/2d4/3d4 wanders
+	can summon 4 ghasts
+	frightens you when touched
+	(NULL)
+	is mean
+	can hold you
+	is undead
+
+[V]vrock                                   8d8  8/1500    0 10 10   5-7
+	1d4/1d4/1d8/1d8/1d6 wanders
+	can summon 4 ghasts
+	is mean
+	(NULL)
+	can see invisible
+	is undead
+
+[s]shambling mound                         9d8  9/1800    0 10 10   5-7
+	2d8/2d8 wanders
+	is mean
+	can suffocate you
+	not affected by ice
+	not affected by fire
+	can hold you
+
+[U]umber hulk                            8d8+8  8/1700    2 10 12  8-10
+	3d4/3d4/2d5 wanders
+	is mean
+	can confuse you
+
+[e]ettin                                  10d8 10/1950    3 10 14   0-0
+	2d8/3d6 wanders
+	is mean
+	can shoot at you
+
+[P]black pudding                          10d8 10/2000    6 10 14   0-0
+	3d8 sleeps
+	is mean
+	can rust
+	not affected by ice
+	divides when hit by a lightning bolt
+	divides when touched
+	is a scavenger
+
+[h]hezrou                                  9d8  9/2000   -2 10 12   5-7
+	1d3/1d3/4d4 wanders
+	can summon 3 wights
+	is mean
+	can frighten you
+	can see invisible
+	(NULL)
+	is undead
+
+[G]glabrezu                               10d8 10/2400   -4 10 14  8-10
+	2d6/2d6/1d3/1d3/1d4+1 sleeps
+	can summon 3 wraiths
+	is mean
+	can frighten you
+	can see invisible
+	(NULL)
+	is undead
+
+[b]bone devil                              9d8  9/2800   -1 10 12 11-12
+	2d4 wanders
+	can summon 3 ghasts
+	is mean
+	can frighten you
+	can see invisible
+	(NULL)
+	can surprise you
+	can give you a chill
+	is undead
+
+[v]vampire                               8d8+3  8/3800    1 20 12 15-16
+	1d6+4 wanders
+	is mean
+	recovers rapidly
+	can suck blood
+	is undead
+
+[I]ice devil                              11d8 11/4400   -4 20 16 13-14
+	1d4/1d4/2d4/3d4 sleeps
+	can summon 2 bone devils
+	is mean
+	can see invisible
+	recovers rapidly
+	can frighten you
+	(NULL)
+	can breath ice
+	not affected by ice
+
+[p]purple worm                            15d8 15/4900    6 10 20   0-0
+	2d12 sleeps
+	is mean
+
+[f]pit fiend                              13d8 13/7900   -3 22 18 15-16
+	1d4+4/1d6+6 wanders
+	can summon 2 erinyess
+	is mean
+	can see invisible
+	need +2,+2 weapon to hit it
+	can frighten you
+	can hold you
+	(NULL)
+	can breath fire
+	not affected by fire
+
+[t]titan                                  19d8 19/9000    0 10 30 17-20
+	7d6 sleeps
+	is invisible most of the time
+
+[l]lich                                   11d8 11/10500   0 10 16 19-20
+	1d10 wanders
+	is mean
+	can paralyze you
+	can frighten you
+	need +1,+1 weapon to hit it
+	is undead
+	not affected by lightning
+
+[r]ancient brass dragon                 0d8+64  8/20000   2 10 50 13-14
+	1d4/1d4/4d4 sleeps
+	can breath slow gas
+	(NULL)
+	is greedy
+
+[W]ancient white dragon                 0d8+56  7/20000   3 10 50   8-9
+	1d4/1d4/2d8 wanders
+	is mean
+	can breath ice
+	is greedy
+
+[a]ancient black dragon                 0d8+64  8/20000   3 10 50  8-10
+	1d4/1d4/3d6 wanders
+	is mean
+	can breath acid
+	is greedy
+
+[c]ancient copper dragon                0d8+72  9/20000   1 10 50 13-14
+	1d4/1d4/5d4 sleeps
+	can breath acid
+	can breath fear gas
+	is greedy
+
+[E]ancient green dragon                 0d8+72  9/20000   2 10 50  8-12
+	1d6/1d6/2d10 wanders
+	is mean
+	can breath gas
+	is greedy
+
+[L]ancient bronze dragon                0d8+80 10/20000   0 10 50 15-16
+	1d6/1d6/4d6 sleeps
+	can breath lighting
+	(NULL)
+	is greedy
+
+[u]ancient blue dragon                  0d8+80 10/20000   2 10 50 11-12
+	1d6/1d6/3d8 wanders
+	is mean
+	can breath lighting
+	is greedy
+
+[S]ancient silver dragon                0d8+88 11/20000  -1 10 50 15-16
+	1d6/1d6/5d6 sleeps
+	can breath ice
+	can breath paralyzing gas
+	is greedy
+
+[F]frost giant                          10d8+4 15/20000   4 25 40  5-10
+	4d6 wanders
+	is mean
+	carries gold
+	not affected by ice
+
+[R]ancient red dragon                   0d8+88 11/20000  -1 10 50 15-16
+	1d8/1d8/3d10 wanders
+	is mean
+	can breath fire
+	is greedy
+
+[G]ancient gold dragon                  0d8+96 12/20000  -2 10 50 17-18
+	1d8/1d8/6d6 sleeps
+	can breath fire
+	can breath gas
+	is greedy
+
+[f]fire giant                           11d8+5 15/26000   4 27 45  6-10
+	5d6 wanders
+	is mean
+	carries gold
+	not affected by fire
+
+[s]storm giant                          15d8+8 15/30000   2 30 50  8-10
+	7d6 wanders
+	is mean
+	not affected by lightning
+	can breath lighting
+
+[J]demon prince (Jubilex)               0d8+88 20/47280  -7 10 0 17-18
+	4d10 sleeps
+	can summon 3 black puddings
+	is mean
+	only one/treasure room
+	can frighten you
+	recovers rapidly
+	need +2,+2 weapon to hit it
+	is invisible most of the time
+	can hold you
+	can give you a disease
+	(NULL)
+
+[g]arch devil (Geryon)                 0d8+133 30/47975  -3 13 0 15-16
+	3d6/3d6/2d4 sleeps
+	can summon 2 ice devils
+	is mean
+	only one/treasure room
+	need +2,+2 weapon to hit it
+	can see invisible
+	is invisible most of the time
+	can frighten you
+	can confuse you
+	can poison you
+	(NULL)
+
+[d]arch devil (Dispater)               0d8+144 36/48040  -2 10 0 17-18
+	4d6 sleeps
+	can summon 2 pit fiends
+	is mean
+	only one/treasure room
+	can see invisible
+	can frighten you
+	can confuse you
+	need +2,+2 weapon to hit it
+	(NULL)
+
+[Y]demon prince (Yeenoghu)             0d8+100 23/54500  -5 10 0 15-16
+	3d6/3d6 sleeps
+	can summon 10 ghouls
+	is mean
+	recovers rapidly
+	only one/treasure room
+	need +1,+1 weapon to hit it
+	can see invisible
+	is invisible most of the time
+	can hold you
+	can frighten you
+	can paralyze you
+	(NULL)
+
+[H]lesser god (Hruggek)                0d8+221 25/55000   0 13 0    17
+	2d8/2d8 sleeps
+	can summon 9 bugbears
+	is mean
+	can see invisible
+	only one/treasure room
+	(NULL)
+
+[K]lesser god (Kurtulmak)              0d8+219 27/55000   0 16 0    19
+	2d12/1d6 wanders
+	is mean
+	can frighten you
+	can poison you
+	can see invisible
+	only one/treasure room
+
+[v]demigod (Vaprak "The Destroyer")    0d8+198 26/56000   0 16 0    18
+	2d10/2d10/1d12 wanders
+	can summon 5 trolls
+	is mean
+	only one/treasure room
+	recovers rapidly
+	need +1,+1 weapon to hit it
+	can see invisible
+	(NULL)
+
+[P]platinum dragon (Bahamut)           0d8+168 38/58080  -3 10 0 19-20
+	2d6/2d6/6d8 sleeps
+	only one/treasure room
+	can breath ice
+	can breath gas
+	can breath lighting
+	is greedy
+
+[B]arch devil (Baalzebul)              0d8+166 37/61410  -5 10 0 17-18
+	2d6 sleeps
+	can summon 4 horned devils
+	is mean
+	is invisible most of the time
+	only one/treasure room
+	need +2,+2 weapon to hit it
+	can hold you
+	can poison you
+	can frighten you
+	can confuse you
+	(NULL)
+
+[C]chromatic dragon (Tiamat)           0d8+128 29/63580   0 10 0 17-18
+	2d8/3d6/2d10/3d8/3d10/1d6 sleeps
+	is mean
+	only one/treasure room
+	can breath fire
+	can breath acid
+	can breath lighting
+	can breath ice
+	can breath gas
+	is greedy
+
+[O]demon prince (Orcus)                0d8+120 27/63900  -6 13 0 19-20
+	1d10+3/2d4 sleeps
+	can summon 4 vampires
+	is mean
+	only one/treasure room
+	need +2,+2 weapon to hit it
+	can poison you
+	can frighten you
+	can see invisible
+	can breath lighting
+	(NULL)
+
+[A]arch devil (Asmodeus)               0d8+199 45/70965  -7 10 0 19-20
+	1d10+4 sleeps
+	can summon 3 pit fiends
+	is mean
+	only one/treasure room
+	can see invisible
+	is invisible most of the time
+	can hold you
+	need +2,+2 weapon to hit it
+	can frighten you
+	can confuse you
+	can give you a chill
+	(NULL)
+
+[D]demon prince (Demogorgon)           0d8+200 45/74000  -8 10 0 19-20
+	1d6/1d6 sleeps
+	can summon 3 glabrezus
+	is mean
+	can confuse you
+	need +2,+2 weapon to hit it
+	can lower exp level by 2
+	can give you a parasite
+	can see invisible
+	can frighten you
+	only one/treasure room
+	(NULL)
+
+[M]greater god (Maglubiyet)            0d8+350 45/80000  -1 10 0    19
+	4d10 sleeps
+	is mean
+	only one/treasure room
+	need +2,+2 weapon to hit it
+	can see invisible
+
+[G]greater god (Gruumsh)               0d8+350 45/82000  -1 10 0    19
+	4d10 sleeps
+	is mean
+	only one/treasure room
+	need +2,+2 weapon to hit it
+	can see invisible
+
+[b]lesser god (Skoraeus Stonebones)    0d8+380 45/85000  -1 10 0    19
+	6d10 sleeps
+	is mean
+	only one/treasure room
+	recovers rapidly
+	need +2,+2 weapon to hit it
+	can see invisible
+
