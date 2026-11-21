@@ -132,6 +132,8 @@
 #define ALLOC(x) malloc((unsigned int) x)
 #define FREE(x) cfree((char *) x)
 #define	EQSTR(a, b, c)	(strncmp(a, b, c) == 0)
+#undef CTRL
+#define CTRL(ch) (ch & 037)
 #define GOLDCALC (rnd(50 + 10 * level) + 2)
 #define ISRING(h, r) (cur_ring[h] != NULL && cur_ring[h]->o_which == r)
 #define ISWEARING(r)	(ISRING(LEFT_1, r) || ISRING(LEFT_2, r) ||\

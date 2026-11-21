@@ -194,7 +194,7 @@ command()
 		when '<' : after = FALSE; u_level();
 		when '?' : after = FALSE; help();
 		when '/' : after = FALSE; identify();
-		when CTRL(T) :
+		when CTRL('T') :
 		    if (get_dir()) steal();
 		    else after = FALSE;
 		when 'D' : dip_it();
@@ -215,9 +215,9 @@ command()
 		when 'v' : after = FALSE;
 			   msg("Advanced Rogue Version %s.",
 				release);
-		when CTRL(L) : after = FALSE; clearok(curscr, TRUE);
+		when CTRL('L') : after = FALSE; clearok(curscr, TRUE);
 				touchwin(cw); /* MMMMMMMMMM */
-		when CTRL(R) : after = FALSE; msg(huh);
+		when CTRL('R') : after = FALSE; msg(huh);
 		when 'S' : 
 		    after = FALSE;
 		    if (save_game())
@@ -229,7 +229,7 @@ command()
 		    }
 		when '.' : ;			/* Rest command */
 		when ' ' : after = FALSE;	/* Do Nothing */
-		when CTRL(P) :
+		when CTRL('P') :
 		    after = FALSE;
 		    if (wizard)
 		    {
@@ -268,17 +268,17 @@ command()
 		    if (wizard) switch (ch)
 		    {
 			when 'M' : create_obj(TRUE, 0, 0);
-			when CTRL(I) : inventory(lvl_obj, 0, getbless());
-			when CTRL(W) : whatis(NULL);
-			when CTRL(D) : level++; new_level(NORMLEV);
-			when CTRL(U) : level--; new_level(NORMLEV);
-			when CTRL(F) : overlay(stdscr,cw);
-			when CTRL(X) : overlay(mw,cw);
-			when CTRL(J) : teleport();
-			when CTRL(E) : msg("food left: %d\tfood level: %d", 
+			when CTRL('I') : inventory(lvl_obj, 0, getbless());
+			when CTRL('W') : whatis(NULL);
+			when CTRL('D') : level++; new_level(NORMLEV);
+			when CTRL('U') : level--; new_level(NORMLEV);
+			when CTRL('F') : overlay(stdscr,cw);
+			when CTRL('X') : overlay(mw,cw);
+			when CTRL('J') : teleport();
+			when CTRL('E') : msg("food left: %d\tfood level: %d", 
 						food_left, foodlev);
-			when CTRL(A) : activity();
-			when CTRL(G) : 
+			when CTRL('A') : activity();
+			when CTRL('G') : 
 			{
 			    int tlev;
 			    prbuf[0] = NULL;
@@ -304,7 +304,7 @@ command()
 				new_level(levtype);
 			    }
 			}
-			when CTRL(N) :
+			when CTRL('N') :
 			{
 			    register struct linked_list *item;
 
@@ -312,7 +312,7 @@ command()
 				((struct object *)ldata(item))->o_charges=10000;
 			}
 #ifdef orig
-			when CTRL(H) :
+			when CTRL('H') :
 			{
 			    register int i;
 			    register struct linked_list *item;
@@ -339,7 +339,7 @@ command()
 			    purse += 5000;
 			}
 #else
-			when CTRL(H):
+			when CTRL('H'):
 			    if (get_dir())
 				hstat();
 #endif
@@ -348,7 +348,7 @@ command()
 				ch = readchar();
 				switch (ch) {
 #ifndef orig
-				when CTRL(H) :
+				when CTRL('H') :
 				{
 				    register int i;
 				    register struct linked_list *item;
