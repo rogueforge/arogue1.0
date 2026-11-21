@@ -15,10 +15,10 @@ static unsigned char msgbuf[BUFSIZ];
 static int newpos = 0;
 
 /*VARARGS1*/
-msg(fmt, args)
-char *fmt;
-int args;
+msg(char *fmt, ...)
 {
+    va_list ap;
+
     /*
      * if the string is "", just clear the line
      */
@@ -32,18 +32,22 @@ int args;
     /*
      * otherwise add to the message and flush it out
      */
-    doadd(fmt, &args);
+    va_start(ap, fmt);
+    doadd(fmt, ap);
+    va_end(ap);
     endmsg();
 }
 
 /*
  * add things to the current message
  */
-addmsg(fmt, args)
-char *fmt;
-int args;
+addmsg(char *fmt, ...)
 {
-    doadd(fmt, &args);
+    va_list ap;
+
+    va_start(ap, fmt);
+    doadd(fmt, ap);
+    va_end(ap);
 }
 
 /*
@@ -69,18 +73,12 @@ endmsg()
 
 doadd(fmt, args)
 char *fmt;
-int **args;
+va_list args;
 {
-    static FILE junk;
-
     /*
      * Do the printf into buf
      */
-    junk._flag = _IOWRT;  /* Under 3.0 IOUNK was IOSTRG */
-    junk._ptr = (char *) &msgbuf[newpos];
-    junk._cnt = 32767;
-    _doprnt(fmt, args, &junk);
-    putc('\0', &junk);
+    vsprintf((char *) &msgbuf[newpos], fmt, args);
     newpos = strlen(msgbuf);
 }
 

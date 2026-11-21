@@ -3,6 +3,8 @@
  *
  */
 
+#include <stdarg.h>
+
 #ifdef BSD
 #define	strchr	index
 #define	lrand48	rand
@@ -729,6 +731,8 @@ char *ctime(), *num(), *ring_num(), *blesscurse(), *typ_name();
 struct room *roomin();
 
 coord *rndmove(), *can_shoot();
+
+int msg(char *fmt, ...), addmsg(char *fmt, ...);
 
 short randmonster(), id_monst();
 
