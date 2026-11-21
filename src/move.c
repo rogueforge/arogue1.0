@@ -166,6 +166,7 @@ int dy, dx;
     if (on(player, ISHELD) && !isalpha(ch))
     {
 	msg("You are being held");
+	running = FALSE;
 	return;
     }
 
