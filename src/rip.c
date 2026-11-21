@@ -101,6 +101,7 @@ short monst;
     char *packend;
 
     signal(SIGINT, byebye);
+    file_name[0] = '\0';
     if (flags != WINNER && flags != SCOREIT) {
 	if (flags == CHICKEN)
 	    packend = "when you quit";
@@ -260,6 +261,7 @@ total_winner()
     register char c;
     register int oldpurse;
 
+    file_name[0] = '\0';
     clear();
     standout();
     addstr("                                                               \n");
