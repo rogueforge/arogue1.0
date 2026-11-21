@@ -397,9 +397,9 @@ total_winner()
     mvprintw(c - 'a' + 1, 0,"   %5d  Gold Pieces          ", oldpurse);
     refresh();
     if (pstats.s_exp + (unsigned)purse < pstats.s_exp)
-	score(pstats.s_exp, 2);		/* too good: no bonus! */
+	score(pstats.s_exp, 2, 0);		/* too good: no bonus! */
     else
-    	score(pstats.s_exp + (unsigned) purse, 2);
+    	score(pstats.s_exp + (unsigned) purse, 2, 0);
     exit(0);
 }
 
