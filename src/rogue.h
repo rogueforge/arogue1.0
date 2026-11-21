@@ -4,6 +4,7 @@
  */
 
 #include <stdarg.h>
+#include <time.h>
 
 #ifdef BSD
 #define	strchr	index
