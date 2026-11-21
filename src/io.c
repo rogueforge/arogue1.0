@@ -56,7 +56,7 @@ addmsg(char *fmt, ...)
  */
 endmsg()
 {
-    strcpy(huh, msgbuf);
+    strncpy(huh, msgbuf, LINELEN - 1);
     if (mpos)
     {
 	wmove(cw, 0, mpos);
