@@ -1050,6 +1050,7 @@ bool pr, points;
     register struct thing *tp;
     register struct linked_list *pitem, *nexti;
     unsigned long exp;
+    coord pos;
 
     tp = (struct thing *) ldata(item);
     if (pr)
@@ -1084,6 +1085,7 @@ bool pr, points;
      * Empty the monsters pack
      */
     pitem = tp->t_pack;
+    pos = tp->t_pos;
 
     /*
      * Get rid of the monster.
@@ -1093,10 +1095,9 @@ bool pr, points;
     {
 	register struct object *obj;
 
-	nexti = next(tp->t_pack);
+	nexti = next(pitem);
 	obj = (struct object *) ldata(pitem);
-	obj->o_pos = tp->t_pos;
-	detach(tp->t_pack, pitem);
+	obj->o_pos = pos;
 
 	if (points) fall(pitem, FALSE);
 	else discard(pitem);
