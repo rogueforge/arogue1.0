@@ -197,7 +197,8 @@ short monst;
     for (scp = top_ten; scp < &top_ten[10]; scp++) {
 	char *class;
 
-	if (scp->sc_score) {
+	if (scp->sc_score && scp->sc_flags >= 0 && scp->sc_flags <= 2
+	    && scp->sc_monster >= D_DROWN && scp->sc_monster <= NUMMONST) {
 	    switch (scp->sc_ctype) {
 		when C_FIGHTER:
 		    class = "fighter";
