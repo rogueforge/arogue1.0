@@ -289,16 +289,19 @@ line_two:
     s_exp = stat_ptr->s_exp; 
     s_ac = (cur_armor != NULL ? cur_armor->o_ac : stat_ptr->s_arm) - 
 		ring_value(R_PROTECT);
-    mvwaddstr(cw, LINES - 1, 0, buf);
+    temp = COLS - 1 - strlen(buf);
+    if (temp < 0)
+	temp = 0;
+    mvwaddnstr(cw, LINES - 1, 0, buf, COLS - 1);
     switch (hungry_state)
     {
 	when F_OK: ;
 	when F_HUNGRY:
-	    waddstr(cw, "  Hungry");
+	    waddnstr(cw, "  Hungry", temp);
 	when F_WEAK:
-	    waddstr(cw, "  Weak");
+	    waddnstr(cw, "  Weak", temp);
 	when F_FAINT:
-	    waddstr(cw, "  Fainting");
+	    waddnstr(cw, "  Fainting", temp);
     }
     wclrtoeol(cw);
     s_hungry = hungry_state;
