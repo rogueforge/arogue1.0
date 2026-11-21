@@ -5,7 +5,9 @@
 /*
  * where scorefile should live
  */
+#ifndef SCOREFILE
 #define SCOREFILE	"/obelix/mnt/scottha/etc/scoreboard"
+#endif
 
 /*
  * Variables for checking to make sure the system isn't too loaded
