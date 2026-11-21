@@ -540,6 +540,7 @@ bool thrown;
 
 		    obj = (struct object *) ldata(steal);
 		    remove_mon(&mp->t_pos, find_mons(mp->t_pos.y, mp->t_pos.x));
+		    monst_dead = TRUE;
 		    if (obj->o_count > 1 && obj->o_group == 0)
 		    {
 			register int oc;
