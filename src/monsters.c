@@ -236,9 +236,12 @@ wanderer()
     register struct linked_list *item;
     register struct thing *tp;
     coord cp;
+    register int cnt = 0;
 
     /* Find a place for it -- avoid the player's room */
     do {
+	if (cnt++ >= 500)
+	    return;
 	do {
 	    i = rnd_room();
 	} until(hr != &rooms[i] || levtype == MAZELEV);
