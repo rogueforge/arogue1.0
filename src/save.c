@@ -310,7 +310,7 @@ char **envp;
     setup();
     clearok(curscr, TRUE);
     touchwin(cw);
-    srand(getpid());
+    srand48(getpid());
     playit();
     /*NOTREACHED*/
 }
