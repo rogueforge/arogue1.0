@@ -256,6 +256,7 @@ register bool flee;
     if (isatrap(sch)) {
 	if (cansee(ch_ret.y, ch_ret.x)) th->t_oldch = sch;
 	be_trapped(th, &ch_ret);
+	if (monst_dead) return;
     }
 
 

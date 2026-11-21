@@ -1018,6 +1018,7 @@ register struct linked_list *item;
     free_list(((struct thing *) ldata(item))->t_pack);
     detach(mlist, item);
     discard(item);
+    monst_dead = TRUE;
 }
 
 /*
