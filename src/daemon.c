@@ -229,7 +229,7 @@ struct fusenames {
 	suffocate,	"suffocate",	8,
 	nohaste,	"nohaste",	80,
 	unconfuse,	"unconfuse",	20+HUHDURATION,
-	sight,		"sight",	SEEDURATION,,
+	sight,		"sight",	SEEDURATION,
 	unclrhead,	"unclrhead",	CLRDURATION,
 	unsee,		"unsee",	SEEDURATION,
 	unphase,	"unphase",	PHASEDURATION,
