@@ -154,7 +154,7 @@
 #define isrock(ch) ((ch == WALL) || (ch == '-') || (ch == '|'))
 #define is_stealth(tp) \
     (rnd(25) < (tp)->t_stats.s_dext || (tp == &player && ISWEARING(R_STEALTH)))
-#define flushout() ioctl(_tty_ch,TCFLSH,0)
+#define flushout() flushinp()
 #define mi_wght mi_worth
 
 /*
