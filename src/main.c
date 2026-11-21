@@ -126,6 +126,12 @@ char **envp;
     init_stones();			/* Set up stone settings of rings */
     init_materials();			/* Set up materials of wands */
     initscr();				/* Start up cursor package */
+    if (LINES < 14 || COLS < 12)
+    {
+	endwin();
+	printf("\nSorry, rogue needs a terminal with at least 14 lines and 12 columns.\n");
+	exit(1);
+    }
     init_names();			/* Set up names of scrolls */
     setup();
     /*
