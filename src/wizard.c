@@ -311,7 +311,7 @@ makemons()
     register int i;
     register short which_monst;
     register int num_monst = NUMMONST, pres_monst=1, num_lines=2*(LINES-3);
-    char monst_name[40];
+    char monst_name[LINELEN];
 
     /* Print out the monsters */
     while (num_monst > 0) {
