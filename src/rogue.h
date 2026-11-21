@@ -724,7 +724,7 @@ struct linked_list *new_thing(), *wake_monster(), *get_hurl(), *spec_item();
 
 struct object *wield_weap();
 
-char *malloc(), *getenv(), *tr_name(), *new(), *sprintf();
+char *malloc(), *getenv(), *tr_name(), *new();
 char *vowelstr(), *inv_name(), *strcpy(), *strcat(), *sbrk(), *brk();
 char *ctime(), *num(), *ring_num(), *blesscurse(), *typ_name();
 
