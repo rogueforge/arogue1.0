@@ -59,6 +59,8 @@ missile(ydelta, xdelta, item, tp)
 	if (!hit_monster(unc(obj->o_pos), obj, tp)) {
 		fall(item, TRUE) ;
 	}
+	else
+		discard(item) ;
 	mvwaddch(cw, hero.y, hero.x, PLAYER) ;
 }
 
