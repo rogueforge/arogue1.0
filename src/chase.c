@@ -323,6 +323,8 @@ register bool flee;
 	 * get a valid random move
 	 */
 	ch_ret = *rndmove(tp);
+	if (ce(ch_ret, hero) && !ce(*ee, hero))
+	    ch_ret = *er;
 	dist = DISTANCE(ch_ret.y, ch_ret.x, ee->y, ee->x);
 	/*
 	 * check to see if random move takes creature away from player
