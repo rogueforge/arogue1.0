@@ -664,6 +664,7 @@ struct object *cur_weapon;
     register int ndice, nsides, nplus, def_arm;
     register bool did_hit = FALSE;
     register int prop_hplus, prop_dplus;
+    char *oldcp;
     char *strchr();	/* strchr was index */
 
     /* Get statistics */
@@ -715,8 +716,12 @@ struct object *cur_weapon;
 	if ((cp = strchr(cp, 'd')) == NULL)	/* strchr was index */
 	    break;
 	nsides = atoi(++cp);
+	oldcp = cp;
 	if ((cp = strchr(cp, '+')) != NULL) nplus = atoi(++cp);
-	else nplus = 0;
+	else {
+	    nplus = 0;
+	    cp = oldcp;
+	}
 
 	if (def == &pstats)
 	{
