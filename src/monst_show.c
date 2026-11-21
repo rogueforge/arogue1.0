@@ -92,6 +92,7 @@ hstat()
 	int au;
 	int know;
 	int sav;
+	char *getflag();
 
 	pos = player.t_pos;
 	for (;;) {
