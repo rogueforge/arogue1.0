@@ -112,7 +112,7 @@ hstat()
 	wclear(hw);
 	wprintw(hw,"you see the view as a%s %s\n\r", vowelstr(nm), nm);
 	if (tp->t_no_move)
-		wprintw("It cannot move for %d moves\n\r", tp->t_no_move);
+		wprintw(hw, "It cannot move for %d moves\n\r", tp->t_no_move);
 	for (i = 0; i < 10 && mp->m_flags[i] != 0; i++)
 		wprintw(hw, "\t%s\n\r", getflag(mp->m_flags[i]));
 	wprintw(hw, "inventory:\n\r");
