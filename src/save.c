@@ -77,7 +77,7 @@ save_game()
 {
     register FILE *savef;
     register int c;
-    char buf[LINELEN];
+    char buf[LINELEN], oname[LINELEN];
 
     if (!save_ok())
     {
@@ -88,6 +88,7 @@ save_game()
      * get file name
      */
     mpos = 0;
+    strcpy(oname, file_name);
     if (file_name[0] != '\0')
     {
 	msg("Save file (%s)? ", file_name);
@@ -112,6 +113,7 @@ save_game()
 	if (get_str(buf, cw) == QUIT)
 	{
 	    msg("");
+	    strcpy(file_name, oname);
 	    return FALSE;
 	}
 	strcpy(file_name, buf);
@@ -132,6 +134,7 @@ gotfile:
     c = errno;
     unlink(file_name);
     msg(strerror(c));
+    strcpy(file_name, oname);
     return FALSE;
 }
 
