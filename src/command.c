@@ -273,7 +273,7 @@ command()
 			when CTRL('I') : inventory(lvl_obj, 0, getbless());
 			when CTRL('W') : whatis(NULL);
 			when CTRL('D') : level++; new_level(NORMLEV);
-			when CTRL('U') : level--; new_level(NORMLEV);
+			when CTRL('U') : if (level > 1) level--; new_level(NORMLEV);
 			when CTRL('F') : overlay(stdscr,cw);
 			when CTRL('X') : overlay(mw,cw);
 			when CTRL('J') : teleport();
