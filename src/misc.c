@@ -280,12 +280,14 @@ eat()
     register struct linked_list *item;
     register struct object *obj;
     unsigned long exp;
+    int which;
 
     if ((item = get_item("eat", FOOD)) == NULL)
 	return;
     obj = (struct object *) ldata(item);
+    which = obj->o_which;
     del_pack(item);
-    if (obj->o_which == 1)
+    if (which == 1)
 	msg("My, that was a yummy %s", fruit);
     else
 	if (rnd(100) > 70)
