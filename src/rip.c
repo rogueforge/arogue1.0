@@ -206,6 +206,10 @@ short monst;
 
 	if (scp->sc_score && scp->sc_flags >= 0 && scp->sc_flags <= 2
 	    && scp->sc_monster >= D_DROWN && scp->sc_monster <= NUMMONST) {
+	    scp->sc_name[79] = '\0';
+	    for (i = 0; scp->sc_name[i] != '\0'; i++)
+		if (scp->sc_name[i] < ' ' || scp->sc_name[i] > '~')
+		    scp->sc_name[i] = '?';
 	    switch (scp->sc_ctype) {
 		when C_FIGHTER:
 		    class = "fighter";
