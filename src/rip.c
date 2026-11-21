@@ -108,7 +108,7 @@ short monst;
 	    packend = "at your untimely demise";
 	mvaddstr(LINES - 1, 0, retstr);
 	refresh();
-	gets(prbuf);
+	getnstr(prbuf, LINELEN - 1);
 	showpack(packend);
     }
     purse = 0;	/* Steal all the gold */
@@ -141,7 +141,7 @@ short monst;
 	mvaddstr(LINES - 1, 0, retstr);
 	refresh();
 	fflush(stdout);
-	gets(prbuf);
+	getnstr(prbuf, LINELEN - 1);
 	endwin();			/* moved from above */
     }
     if (wizard)
@@ -248,7 +248,7 @@ short monst;
     mvaddstr(LINES - 1, 0, retstr);	/* this section added for xwindows */
     refresh();
     fflush(stdout);
-    gets(prbuf);
+    getnstr(prbuf, LINELEN - 1);
 
 }
 
