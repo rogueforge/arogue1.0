@@ -473,6 +473,8 @@ command()
 	    pick_up(take);
 	if (!running)
 	    door_stop = FALSE;
+	if (!after)
+	    ntimes++;
 
 	/* If after is true, mark an_after as true so that if
 	 * we are hasted, the first "after" will be noted.
