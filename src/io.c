@@ -61,11 +61,13 @@ endmsg()
     strncpy(huh, msgbuf, LINELEN - 1);
     if (mpos)
     {
-	wmove(cw, 0, mpos);
+	wmove(cw, 0, mpos > COLS - 10 ? COLS - 10 : mpos);
 	waddstr(cw, morestr);
 	draw(cw);
 	wait_for(' ');
     }
+    if (newpos > COLS - 1)
+	msgbuf[newpos = COLS - 1] = '\0';
     mvwaddstr(cw, 0, 0, msgbuf);
     wclrtoeol(cw);
     mpos = newpos;
