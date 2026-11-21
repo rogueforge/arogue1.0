@@ -138,6 +138,9 @@ short monst;
     }
 
     signal(SIGINT, SIG_DFL);
+#ifdef SIGTSTP
+    signal(SIGTSTP, SIG_DFL);
+#endif
     if (flags != SCOREIT)
     {
 	mvaddstr(LINES - 1, 0, retstr);
