@@ -136,7 +136,8 @@ fall(item, pr)
 		return ;
 	}
 	if (pr) {
-		msg("The %s vanishes as it hits the ground.", weaps[obj->o_which].w_name) ;		
+		msg("The %s vanishes as it hits the ground.",
+		    obj->o_type == WEAPON ? weaps[obj->o_which].w_name : "object") ;		
 	}
 	discard(item) ;
 }
