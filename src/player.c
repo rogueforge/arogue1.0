@@ -168,7 +168,7 @@ pray()
 
     /* Prompt for prayer */
     msg("Which prayer are you offering? (* for list): ");
-    which_prayer = (short) ((getchar() & 0177) - 'a');
+    which_prayer = (short) (readchar() - 'a');
     if (which_prayer == (short) ESCAPE - (short) 'a') {
 	after = FALSE;
 	return;
@@ -226,7 +226,7 @@ pray()
     }
 
     if (!nohw) {
-	which_prayer = (short) ((getchar() & 0177) - 'a');
+	which_prayer = (short) (readchar() - 'a');
 	while (which_prayer < 0 || which_prayer >= num_prayers) {
 	    if (which_prayer == (short) ESCAPE - (short) 'a') {
 		after = FALSE;
@@ -234,7 +234,7 @@ pray()
 	    }
 	    mvwaddstr(hw, 0, 0, "Please enter one of the listed prayers.");
 	    draw(hw);
-	    which_prayer = (short) ((getchar() & 0177) - 'a');
+	    which_prayer = (short) (readchar() - 'a');
 	}
     }
 
@@ -369,7 +369,7 @@ cast()
     /* Prompt for spells */
     msg("Which spell are you casting? (* for list): ");
 
-    which_spell = (short) ((getchar() & 0177) - 'a');
+    which_spell = (short) (readchar() - 'a');
     if (which_spell == (short) ESCAPE - (short) 'a') {
 	after = FALSE;
 	return;
@@ -427,7 +427,7 @@ cast()
     }
 
     if (!nohw) {
-	which_spell = (short) ((getchar() & 0177) - 'a');
+	which_spell = (short) (readchar() - 'a');
 	while (which_spell < 0 || which_spell >= num_spells) {
 	    if (which_spell == (short) ESCAPE - (short) 'a') {
 		after = FALSE;
@@ -436,7 +436,7 @@ cast()
 	    msg("");
 	    mvwaddstr(hw, 0, 0, "Please enter one of the listed spells. ");
 	    draw(hw);
-	    which_spell = (short) ((getchar() & 0177) - 'a');
+	    which_spell = (short) (readchar() - 'a');
 	}
     }
 

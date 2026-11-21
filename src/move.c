@@ -894,7 +894,7 @@ register int y, x;
 	mvwaddstr(hw, 0, 0, "Which kind of trap do you wish to set? ");
 	draw(hw);
 
-	selection = (short) ((getchar() & 0177) - '0');
+	selection = (short) (readchar() - '0');
 	while (selection < 1 || selection > 6) {
 	    if (wizard && selection < 9)
 		break;
@@ -904,7 +904,7 @@ register int y, x;
 	    }
 	    mvwaddstr(hw, 0, 0, "Please enter a selection between 1 and 6:  ");
 	    draw(hw);
-	    selection = (short) ((getchar() & 0177) - '0');
+	    selection = (short) (readchar() - '0');
 	}
     }
 
