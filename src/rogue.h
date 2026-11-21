@@ -7,6 +7,10 @@
 #include <time.h>
 #include <unistd.h>
 
+#ifndef reg
+#define reg register
+#endif
+
 #ifdef BSD
 #define	strchr	index
 #define	lrand48	rand
