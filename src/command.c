@@ -218,7 +218,7 @@ command()
 				release);
 		when CTRL('L') : after = FALSE; clearok(curscr, TRUE);
 				touchwin(cw); /* MMMMMMMMMM */
-		when CTRL('R') : after = FALSE; msg(huh);
+		when CTRL('R') : after = FALSE; msg("%s", huh);
 		when 'S' : 
 		    after = FALSE;
 		    if (save_game())
