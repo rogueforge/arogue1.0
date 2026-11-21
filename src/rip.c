@@ -10,6 +10,7 @@
 #include <signal.h>
 #include <ctype.h>
 #include <sys/types.h>
+#include <sys/stat.h>
 #include <sys/file.h>
 #include <fcntl.h>
 #include <pwd.h>
@@ -291,12 +292,22 @@ hold_sc()
 open_score()
 {
     register int i;
+    struct stat sbuf, sbuf2;
 
     while ((i = open("/dev/null", O_RDWR)) >= 0 && i < 3)
 	continue;
     if (i >= 3)
 	close(i);
-    fd = open(SCOREFILE, O_RDWR|O_CREAT, 0600);
+    if (lstat(SCOREFILE, &sbuf) < 0)
+	fd = open(SCOREFILE, O_RDWR|O_CREAT|O_EXCL, 0600);
+    else if ((sbuf.st_mode & S_IFMT) != S_IFREG || sbuf.st_nlink != 1)
+	fd = -1;
+    else if ((fd = open(SCOREFILE, O_RDWR)) >= 0 && (fstat(fd, &sbuf2) < 0
+	|| sbuf2.st_dev != sbuf.st_dev || sbuf2.st_ino != sbuf.st_ino))
+    {
+	close(fd);
+	fd = -1;
+    }
     if ((setregid(getgid(), getgid()) < 0 || setreuid(getuid(), getuid()) < 0)
 	&& (getegid() != getgid() || geteuid() != getuid()))
     {
