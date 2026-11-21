@@ -354,7 +354,7 @@ register char *str;
 		    /*
 		     * Skip to start of string value
 		     */
-		    for (str = *sp ? sp + 1 : sp; *str == '='; str++)
+		    for (str = sp; *str == '='; str++)
 			continue;
 		    if (*str == '~')
 		    {
@@ -368,12 +368,14 @@ register char *str;
 		    /*
 		     * Skip to end of string value
 		     */
-		    for (sp = *str ? str + 1 : str; *sp && *sp != ','; sp++)
+		    for (sp = str; *sp && *sp != ','; sp++)
 			continue;
 		    strucpy(start, str, sp - str);
 
 		    /* Put the value into the option field */
-		    if (op->o_putfunc != put_abil) 
+		    if (*start == '\0')
+			;
+		    else if (op->o_putfunc != put_abil) 
 			strucpy(op->o_opt, value, strlen(value));
 
 		    else if (*op->o_opt == -1) { /* Only init ability once */
