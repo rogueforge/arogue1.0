@@ -6,6 +6,7 @@
 #include "curses.h"
 #include <ctype.h>
 #include <signal.h>
+#include <errno.h>
 #include "rogue.h"
 
 /*
@@ -782,7 +783,7 @@ shell()
 
 	signal(SIGINT, SIG_IGN);
 	signal(SIGQUIT, SIG_IGN);
-	while (wait(&ret_status) != pid)
+	while (wait(&ret_status) != pid && errno != ECHILD)
 	    continue;
 	signal(SIGINT, endit);
 	signal(SIGQUIT, endit);
