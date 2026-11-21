@@ -127,7 +127,7 @@ char **envp;
     /*
      * Start up daemons and fuses
      */
-    start_daemon(doctor, &player, AFTER);
+    start_daemon(doctor, (long) &player, AFTER);
     fuse(swander, 0, WANDERTIME, AFTER);
     start_daemon(stomach, 0, AFTER);
     start_daemon(runners, 0, AFTER);

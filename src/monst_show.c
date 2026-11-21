@@ -17,7 +17,7 @@ monst_show()
 		return;
 	}
 	for (m = &monsters[1]; m < &monsters[NUMMONST]; m++) {
-		fprintf(fp, "[%c]%-35s %7s %2d/%-5d %3d %2d %5d %5s\n",
+		fprintf(fp, "[%c]%-35s %7s %2d/%-5ld %3d %2d %5d %5s\n",
 			m->m_appear,
 			m->m_name,
 			m->m_stats.s_hpt,
@@ -49,7 +49,7 @@ struct monster *m;
 	wclear(hw);
 	wprintw(hw, "[%c] %-35s %7s %3s/%-4s %3s %2s %5s %5s\n\r",
 		'c', "name", "hpt", "lvl", "exp", "ac", "str", "+exp", "intel");
-	wprintw(hw, "[%c] %-35s %7s %2d/%-5d %3d %2d %5d %5s\n\r",
+	wprintw(hw, "[%c] %-35s %7s %2d/%-5ld %3d %2d %5d %5s\n\r",
 		m->m_appear,
 		m->m_name,
 		m->m_stats.s_hpt,

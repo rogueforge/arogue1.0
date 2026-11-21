@@ -199,7 +199,7 @@ short monst;
 		    class = "unknown";
 	    }
 
-	    printf("%d\t%lu\t%s (%s): %s on level %d", scp - top_ten + 1,
+	    printf("%d\t%lu\t%s (%s): %s on level %d", (int) (scp - top_ten) + 1,
 		scp->sc_score, scp->sc_name, class, reason[scp->sc_flags],
 		scp->sc_level);
 	    if (scp->sc_flags == 0) {
