@@ -226,6 +226,8 @@ struct linked_list *item;
 	detach(pack, obj);
         inpack--;
     }
+    if (op->o_type == AMULET)
+	amulet = FALSE;
     if(ch == POOL) {
 	msg("Your %s sinks out of sight.",inv_name(op,TRUE,-1));
 	discard(obj);

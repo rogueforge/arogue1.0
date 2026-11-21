@@ -553,6 +553,8 @@ bool thrown;
 		    else
 		    {
 			msg("She stole %s!", inv_name(obj, TRUE, -1));
+			if (obj->o_type == AMULET)
+			    amulet = FALSE;
 			detach(pack, steal);
 			discard(steal);
 		        inpack--;

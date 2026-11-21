@@ -41,6 +41,8 @@ missile(ydelta, xdelta, item, tp)
 		detach(tp->t_pack, item) ;
 		if (tp->t_pack == pack) {
 			inpack-- ;
+			if (obj->o_type == AMULET)
+				amulet = FALSE ;
 		}
 	} else {
 		obj->o_count-- ;
