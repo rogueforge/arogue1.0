@@ -36,11 +36,12 @@ char **envp;
      */
     /* monst_show(); */
     if ((env = getenv("HOME")) != NULL)
-	strcpy(home, env);
+	strncpy(home, env, LINELEN - 12);
     else if ((pw = getpwuid(getuid())) != NULL)
-	strcpy(home, pw->pw_dir);
+	strncpy(home, pw->pw_dir, LINELEN - 12);
     else
 	home[0] = '\0';
+    home[LINELEN - 12] = '\0';
     strcat(home, "/");
 
     /* Get default save file */
@@ -48,7 +49,7 @@ char **envp;
     strcat(file_name, "rogue.save");
 
     /* Get default score file */
-    strcpy(score_file, SCOREFILE);
+    strncpy(score_file, SCOREFILE, LINELEN - 1);
 
     if ((env = getenv("ROGUEOPTS")) != NULL)
 	parse_opts(env);
