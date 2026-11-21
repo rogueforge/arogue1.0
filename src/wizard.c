@@ -60,7 +60,7 @@ struct linked_list *what;
 	    }
     }
     if (what == NULL)
-	msg(inv_name(obj, FALSE, -1));
+	msg("%s", inv_name(obj, FALSE, -1));
 }
 
 /*
