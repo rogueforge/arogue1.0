@@ -264,6 +264,12 @@ short monst;
  */
 open_score()
 {
+    register int i;
+
+    while ((i = open("/dev/null", O_RDWR)) >= 0 && i < 3)
+	continue;
+    if (i >= 3)
+	close(i);
     fd = open(SCOREFILE, O_RDWR|O_CREAT, 0600);
     if ((setregid(getgid(), getgid()) < 0 || setreuid(getuid(), getuid()) < 0)
 	&& (getegid() != getgid() || geteuid() != getuid()))
