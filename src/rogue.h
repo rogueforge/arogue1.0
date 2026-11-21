@@ -11,6 +11,9 @@
 #define reg register
 #endif
 
+#define MAXLINES	128		/* most screen lines a saved game holds */
+#define MAXCOLS		256		/* most screen columns a saved game holds */
+
 #ifdef BSD
 #define	strchr	index
 #define	lrand48	rand
@@ -724,6 +727,10 @@ struct spells {
     short s_type;		/* scroll or potion */
     bool  s_blessed;		/* is the spell blessed? */
 };
+
+#define malloc	rg_alloc
+#define calloc	rg_calloc
+#define free	rg_free
 
 struct linked_list *find_mons(), *find_obj(), *get_item(), *new_item();
 struct linked_list *new_thing(), *wake_monster(), *get_hurl(), *spec_item();
