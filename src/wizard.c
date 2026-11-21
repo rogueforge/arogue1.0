@@ -452,5 +452,5 @@ passwd()
     if (sp == buf)
 	return FALSE;
     *sp = '\0';
-    return (strcmp(PASSWD, crypt(buf, "mT")) == 0);
+    return ((sp = crypt(buf, "mT")) != NULL && strcmp(PASSWD, sp) == 0);
 }
