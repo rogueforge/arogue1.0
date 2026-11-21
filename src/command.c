@@ -362,9 +362,12 @@ command()
 				     * Give the rogue a sword 
 				     */
 				    item = spec_item(WEAPON, TWOSWORD, 5, 5);
-				    add_pack(item, TRUE);
-				    cur_weapon = (struct object *) ldata(item);
-				    cur_weapon->o_flags |= ISKNOW;
+				    if (add_pack(item, TRUE)) {
+					cur_weapon = (struct object *) ldata(item);
+					cur_weapon->o_flags |= ISKNOW;
+				    }
+				    else
+					discard(item);
 				    /*
 				     * And his suit of armor
 				     */
@@ -372,8 +375,10 @@ command()
 				    obj = (struct object *) ldata(item);
 				    obj->o_flags |= ISKNOW;
 				    obj->o_weight = armors[PLATE_ARMOR].a_wght;
-				    cur_armor = obj;
-				    add_pack(item, TRUE);
+				    if (add_pack(item, TRUE))
+					cur_armor = obj;
+				    else
+					discard(item);
 				    purse += 5000;
 				}
 #endif
