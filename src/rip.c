@@ -11,6 +11,7 @@
 #include <ctype.h>
 #include <sys/types.h>
 #include <sys/file.h>
+#include <fcntl.h>
 #include <pwd.h>
 #include "mach_dep.h"
 #include "rogue.h"
@@ -155,6 +156,8 @@ short monst;
 	    prflags = 1;
 	else if (strcmp(prbuf, "edit") == 0)
 	    prflags = 2;
+    if (!waswizard || prflags == 2)
+	hold_sc();
     encread((char *) top_ten, sizeof top_ten, fd);
     /*
      * Insert player in list if need be
@@ -244,11 +247,14 @@ short monst;
 		printf(".\n");
 	}
     }
-    fseek(outf, 0L, 0);
     /*
      * Update the list file
      */
-    encwrite((char *) top_ten, sizeof top_ten, outf);
+    if (!waswizard || prflags == 2)
+    {
+	fseek(outf, 0L, 0);
+	encwrite((char *) top_ten, sizeof top_ten, outf);
+    }
     fclose(outf);
 
     mvaddstr(LINES - 1, 0, retstr);	/* this section added for xwindows */
@@ -256,6 +262,26 @@ short monst;
     fflush(stdout);
     getnstr(prbuf, LINELEN - 1);
 
+}
+
+/*
+ * hold_sc:
+ *	Lock the score file.  The lock goes when the file is closed.
+ *	Return TRUE if the file could be locked.
+ */
+hold_sc()
+{
+    register int cnt;
+    static struct flock fl;
+
+    fl.l_type = F_WRLCK;
+    for (cnt = 0; fcntl(fd, F_SETLK, &fl) < 0; cnt++)
+    {
+	if (cnt == 5)
+	    return FALSE;
+	sleep(1);
+    }
+    return TRUE;
 }
 
 /*
