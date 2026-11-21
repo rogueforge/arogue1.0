@@ -500,7 +500,7 @@ register coord *tc;
 	    else {
 		if (can_see) msg("The %s fell into a trap!", mname);
 		check_residue(th);
-		remove(&th->t_pos, mitem);
+		remove_mon(&th->t_pos, mitem);
 	    }
 	when BEARTRAP:
 	    if (is_stealth(th)) {
@@ -672,7 +672,7 @@ register coord *tc;
 	else {
 	    if (can_see) msg("The %s fell into a trap!", mname);
 	    check_residue(th);
-	    remove(&th->t_pos, mitem);
+	    remove_mon(&th->t_pos, mitem);
 	}
     }
     flushout();		/* flush typeahead */
