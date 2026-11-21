@@ -270,7 +270,9 @@ setup()
     signal(SIGILL, quit);
     signal(SIGTRAP, quit);
     signal(SIGIOT, quit);
+#ifdef SIGEMT
     signal(SIGEMT, quit);
+#endif
     signal(SIGFPE, quit);
     signal(SIGBUS, quit);
     signal(SIGSEGV, quit);
