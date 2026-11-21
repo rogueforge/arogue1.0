@@ -185,7 +185,8 @@ bool blessed;
 		    }
 
 		    /* Now move the monster */
-		    if (isalpha(mvwinch(cw, y, x)))
+		    if (isalpha(mvwinch(cw, y, x))
+			|| mvwinch(cw, y, x) == tp->t_disguise)
 			mvwaddch(cw, y, x, tp->t_oldch);
 		    tp->t_dest = &hero;
 		    turn_on(*tp, ISRUN);
