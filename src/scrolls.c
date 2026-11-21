@@ -486,7 +486,8 @@ pet_message:	    msg("The dungeon begins to rumble and shake!");
 	     (obj->o_flags & ISKNOW) == NULL &&
 	     s_guess[which] == NULL) {
 	msg(terse ? "Call it: " : "What do you want to call it? ");
-	if (get_str(buf, cw) == NORM)
+	buf[0] = '\0';
+	if (get_str(buf, cw) == NORM && buf[0] != '\0')
 	{
 	    s_guess[which] = new(strlen(buf) + 1);
 	    strcpy(s_guess[which], buf);

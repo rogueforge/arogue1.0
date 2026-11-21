@@ -233,7 +233,7 @@ int know;
     register struct object *obj;
     register char ch;
     register int n_objs;
-    char inv_temp[LINELEN];
+    char inv_temp[3*LINELEN + 4];
     int sav;
 
     n_objs = 0;
