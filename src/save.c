@@ -17,8 +17,6 @@ extern char version[], encstr[], *strerror();
 /* extern bool _endwin; */
 #include <errno.h>
 
-char *sbrk();
-
 STAT sbuf;
 
 save_game()

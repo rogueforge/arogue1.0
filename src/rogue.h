@@ -5,6 +5,7 @@
 
 #include <stdarg.h>
 #include <time.h>
+#include <unistd.h>
 
 #ifdef BSD
 #define	strchr	index
@@ -726,7 +727,7 @@ struct linked_list *new_thing(), *wake_monster(), *get_hurl(), *spec_item();
 struct object *wield_weap();
 
 char *malloc(), *getenv(), *tr_name(), *new();
-char *vowelstr(), *inv_name(), *strcpy(), *strcat(), *sbrk(), *brk();
+char *vowelstr(), *inv_name(), *strcpy(), *strcat();
 char *ctime(), *num(), *ring_num(), *blesscurse(), *typ_name();
 
 struct room *roomin();
@@ -751,7 +752,6 @@ void	byebye();
 int checkout();
 #endif
 
-long lseek();
 
 struct trap *trap_at();
 
