@@ -78,8 +78,10 @@ bool thrown;
 	did_hit = FALSE;
 	mname = (on(player, ISBLIND)) ? "it" : monsters[tp->t_index].m_name;
 	if (!can_blink(tp) &&
-	    (off(*tp, MAGICHIT) || weap->o_hplus > 0 || weap->o_dplus > 0) &&
-	    (off(*tp, BMAGICHIT) || weap->o_hplus > 1 || weap->o_dplus > 1) &&
+	    (off(*tp, MAGICHIT) ||
+	     (weap != NULL && (weap->o_hplus > 0 || weap->o_dplus > 0))) &&
+	    (off(*tp, BMAGICHIT) ||
+	     (weap != NULL && (weap->o_hplus > 1 || weap->o_dplus > 1))) &&
 	    roll_em(&player, tp, weap, thrown, cur_weapon))
 	{
 	    did_hit = TRUE;
@@ -91,7 +93,7 @@ bool thrown;
 		hit(NULL, mname);
 
 	    /* If the player hit a rust monster, he better have a + weapon */
-	    if (on(*tp, CANRUST) && !thrown &&
+	    if (on(*tp, CANRUST) && !thrown && cur_weapon != NULL &&
 		(cur_weapon->o_flags & ISMETAL) &&
 		!(cur_weapon->o_flags & ISPROT) &&
 		(cur_weapon->o_hplus < 1) && (cur_weapon->o_dplus < 1)) {
