@@ -21,6 +21,7 @@ int no_move;				/* Number of turns held in place */
 int seed;				/* Random number seed */
 int dnum;				/* Dungeon number */
 int max_level;				/* Deepest player has gone */
+int fd = -1;				/* File descriptor for score file */
 int lost_dext;				/* amount of lost dexterity */
 int mpos = 0;
 int no_command = 0;

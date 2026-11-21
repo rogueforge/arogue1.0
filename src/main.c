@@ -31,6 +31,7 @@ char **envp;
     bool alldone;
     long now;
 
+    open_score();
     /*
      * get home and options from environment
      */

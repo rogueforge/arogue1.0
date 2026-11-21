@@ -813,6 +813,7 @@ extern int seed;			/* Random number seed */
 extern int count;			/* Number of times to repeat command */
 extern int dnum;			/* Dungeon number */
 extern int max_level;			/* Deepest player has gone */
+extern int fd;				/* File descriptor for score file */
 extern int food_left;			/* Amount of food in hero's stomach */
 extern int group;			/* Current group number */
 extern int hungry_state;		/* How hungry is he */

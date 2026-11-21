@@ -91,7 +91,6 @@ short monst;
     register FILE *outf;
     register char *killer;
     register int prflags = 0;
-    register int fd;
     static char *reason[] = {
 	"killed",
 	"quit",
@@ -122,7 +121,9 @@ short monst;
      * Open file and read list
      */
 
-    if ((fd = open(score_file, O_RDWR|O_CREAT, 0600)) < 0) return;
+    if (strncmp(score_file, SCOREFILE, LINELEN - 1) != 0)
+	fd = open(score_file, O_RDWR|O_CREAT, 0600);
+    if (fd < 0) return;
     outf = fdopen(fd, "w");
 
     for (scp = top_ten; scp < &top_ten[10]; scp++)
@@ -255,6 +256,21 @@ short monst;
     fflush(stdout);
     getnstr(prbuf, LINELEN - 1);
 
+}
+
+/*
+ * open_score:
+ *	Open the score file, and give up set-id privileges for good
+ */
+open_score()
+{
+    fd = open(SCOREFILE, O_RDWR|O_CREAT, 0600);
+    if ((setregid(getgid(), getgid()) < 0 || setreuid(getuid(), getuid()) < 0)
+	&& (getegid() != getgid() || geteuid() != getuid()))
+    {
+	perror("rogue");
+	exit(1);
+    }
 }
 
 total_winner()
