@@ -102,6 +102,7 @@ short monst;
 
     signal(SIGINT, byebye);
     file_name[0] = '\0';
+    signal(SIGHUP, SIG_IGN);
     if (flags != WINNER && flags != SCOREIT) {
 	if (flags == CHICKEN)
 	    packend = "when you quit";
