@@ -264,7 +264,7 @@ int know;
 	     */
 	    case 1:
 		if (slow_invent)
-		    msg(inv_temp);
+		    msg("%s", inv_temp);
 		else
 		{
 		    wclear(hw);
@@ -295,7 +295,7 @@ int know;
     }
     if (n_objs == 1)
     {
-	msg(inv_temp);
+	msg("%s", inv_temp);
 	return TRUE;
     }
     if (!slow_invent)
