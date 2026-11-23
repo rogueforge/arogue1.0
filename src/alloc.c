@@ -51,12 +51,14 @@ char *const rg_ebss = (char *) &arena[NHEADERS];
  * rg_alloc:
  *	Get some storage.  New storage is used while there is any, so
  *	that a block handed back is left alone for as long as possible.
+ *	After that the first block handed back that is big enough is
+ *	used, and what it has left over goes back on the free list.
  */
 NOCHECK char *
 rg_alloc(nbytes)
 unsigned int nbytes;
 {
-    register HEADER *hp, **pp;
+    register HEADER *hp, **pp, *rest;
     register unsigned long units;
 
     if (!heap.h_guarded)
@@ -80,7 +82,17 @@ unsigned int nbytes;
 		break;
 	if (hp == 0)
 	    return 0;
-	*pp = hp->h.h_next;
+	if (hp->h.h_units - units >= 2)
+	{
+	    rest = hp + units;
+	    rest->h.h_units = hp->h.h_units - units;
+	    rest->h.h_size = 0;
+	    rest->h.h_next = hp->h.h_next;
+	    *pp = rest;
+	    hp->h.h_units = units;
+	}
+	else
+	    *pp = hp->h.h_next;
     }
     hp->h.h_size = nbytes;
     ASAN_UNPOISON_MEMORY_REGION(hp + 1, nbytes);
@@ -109,13 +121,17 @@ unsigned int n, size;
 /*
  * rg_free:
  *	Hand some storage back.  Handing the same storage back a second
- *	time does nothing.
+ *	time does nothing.  The free list is kept in the order of the
+ *	blocks in the array, and a block is joined to a free one on
+ *	either side of it, so that what is handed back does not end up
+ *	in pieces too small for anything.
  */
 NOCHECK
 rg_free(cp)
 char *cp;
 {
     register HEADER *hp = (HEADER *) cp - 1;
+    register HEADER *np, **pp, *prev = 0;
 
     if (hp->h.h_size == 0)
 	TWICE(cp);
@@ -123,8 +139,22 @@ char *cp;
     {
 	ASAN_POISON_MEMORY_REGION(cp, hp->h.h_size);
 	hp->h.h_size = 0;
-	hp->h.h_next = heap.h_free;
-	heap.h_free = hp;
+	for (pp = &heap.h_free; (np = *pp) != 0 && np < hp; pp = &np->h.h_next)
+	    prev = np;
+	if (np != 0 && hp + hp->h.h_units == np)
+	{
+	    hp->h.h_units += np->h.h_units;
+	    hp->h.h_next = np->h.h_next;
+	}
+	else
+	    hp->h.h_next = np;
+	if (prev != 0 && prev + prev->h.h_units == hp)
+	{
+	    prev->h.h_units += hp->h.h_units;
+	    prev->h.h_next = hp->h.h_next;
+	}
+	else
+	    *pp = hp;
     }
 }
 
@@ -202,22 +232,23 @@ volatile char *cp;
  * rg_restored:
  *	The storage has just been read back from a saved game.  Go
  *	through it, put the guards back around the blocks in use and
- *	make the free list again from the blocks that are not, so that
- *	the list in the file is never followed.  Returns zero if the
+ *	make the free list again from the blocks that are not, in order
+ *	and joined where they are side by side, so that the list in the
+ *	file is never followed.  Returns zero if the
  *	blocks do not add up, so that a damaged file cannot keep the
  *	walk from ending.
  */
 NOCHECK
 rg_restored()
 {
-    register HEADER *hp;
+    register HEADER *hp, **pp, *last = 0;
     register unsigned long top;
 
     top = (char *) heap.h_top - (char *) arena;
     if (top > sizeof arena || top % sizeof (HEADER) != 0)
 	return 0;
     ASAN_POISON_MEMORY_REGION(arena, sizeof arena);
-    heap.h_free = 0;
+    pp = &heap.h_free;
     for (hp = arena; hp < heap.h_top; hp += hp->h.h_units)
     {
 	if (hp->h.h_units < 2 || hp->h.h_units > heap.h_top - hp
@@ -225,12 +256,21 @@ rg_restored()
 		return 0;
 	if (hp->h.h_size == 0)
 	{
-	    hp->h.h_next = heap.h_free;
-	    heap.h_free = hp;
+	    if (last != 0 && last + last->h.h_units == hp)
+		last->h.h_units += hp->h.h_units;
+	    else
+	    {
+		*pp = last = hp;
+		pp = &hp->h.h_next;
+	    }
 	}
 	else
+	{
+	    last = 0;
 	    ASAN_UNPOISON_MEMORY_REGION(hp + 1, hp->h.h_size);
+	}
     }
+    *pp = 0;
     heap.h_guarded = 1;
     return 1;
 }
