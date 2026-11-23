@@ -535,6 +535,7 @@ int damage;
     register char dirch, ch;
     register bool used, change;
     register short y, x;
+    int lastbounce = -1;
     coord pos;
     coord spotpos[BOLT_LENGTH];
     bool ret_val = FALSE;	/* True if monster gets killed */
@@ -615,7 +616,10 @@ int damage;
 		    else if (dirch == '/') dirch = '\\';
 		}
 
-		y--;
+		if (y != lastbounce) {
+		    lastbounce = y;
+		    y--;
+		}
 		msg("The %s bounces", name);
 		break;
 	    default:
