@@ -237,6 +237,10 @@ wanderer()
     register struct thing *tp;
     coord cp;
     register int cnt = 0;
+    long rg_room();
+
+    if (rg_room() < 32 * 1024)
+	return;
 
     /* Find a place for it -- avoid the player's room */
     do {

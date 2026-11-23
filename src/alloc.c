@@ -100,6 +100,21 @@ unsigned int nbytes;
 }
 
 /*
+ * rg_room:
+ *	How much storage there is still to hand out, new and handed back
+ */
+NOCHECK long
+rg_room()
+{
+    register HEADER *hp;
+    register long n = (char *) &arena[NHEADERS] - (char *) heap.h_top;
+
+    for (hp = heap.h_free; hp != 0; hp = hp->h.h_next)
+	n += hp->h.h_units * sizeof (HEADER);
+    return n;
+}
+
+/*
  * rg_calloc:
  *	Get some storage and clear it
  */
