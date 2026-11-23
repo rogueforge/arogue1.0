@@ -379,6 +379,7 @@ teleport()
     register int rm;
     coord c;
     bool is_lit = FALSE;	/* For saving room light state */
+    register int cnt = 0;
 
     c = hero;
     mvwaddch(cw, hero.y, hero.x, mvwinch(stdscr, hero.y, hero.x));
@@ -386,10 +387,14 @@ teleport()
     {
 	rm = rnd_room();
 	rnd_pos(&rooms[rm], &hero);
-    } until(winat(hero.y, hero.x) == FLOOR);
+    } until(winat(hero.y, hero.x) == FLOOR || ++cnt > 500);
 
     /* If hero gets moved, darken old room */
     new_rp = &rooms[rm];
+    if (cnt > 500) {
+	hero = c;
+	new_rp = roomin(&hero);
+    }
     if (old_rp && old_rp != new_rp) {
 	if (!(old_rp->r_flags & ISDARK)) is_lit = TRUE;
 	old_rp->r_flags |= ISDARK;	/* Fake darkness */
