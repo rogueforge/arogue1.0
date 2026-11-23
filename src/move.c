@@ -586,7 +586,8 @@ register coord *tc;
 		do {
 		    rm = rnd_room();
 		    rnd_pos(&rooms[rm], &th->t_pos);
-		} until(winat(th->t_pos.y, th->t_pos.x) == FLOOR || ++cnt > 500);
+		} until((winat(th->t_pos.y, th->t_pos.x) == FLOOR
+			&& !ce(th->t_pos, hero)) || ++cnt > 500);
 		if (cnt > 500)
 		    th->t_pos = opos;
 
