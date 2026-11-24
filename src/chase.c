@@ -207,7 +207,18 @@ register bool flee;
 			((struct thing *) ldata(mitem))->t_dest = &hero;
 	    mvaddch(ch_ret.y, ch_ret.x, floor);
 	    mvwaddch(cw, ch_ret.y, ch_ret.x, floor);
-	    attach(th->t_pack, item);
+	    for (mitem = th->t_pack; mitem != NULL; mitem = next(mitem))
+		if (((struct object *) ldata(item))->o_group > 0
+		    && ((struct object *) ldata(mitem))->o_group ==
+		       ((struct object *) ldata(item))->o_group)
+			break;
+	    if (mitem != NULL) {
+		((struct object *) ldata(mitem))->o_count +=
+		    ((struct object *) ldata(item))->o_count;
+		discard(item);
+	    }
+	    else
+		attach(th->t_pack, item);
 	}
     }
 
